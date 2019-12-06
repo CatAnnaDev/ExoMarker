@@ -1,5 +1,5 @@
 {
-	"gameVersion": "87.6",
+	"gameVersion": "4.3.2",
 	"enabled": true,
 	"markenabled": true,
 	"messager": true,
@@ -22,5 +22,5 @@
 		"2020_1101": "Draakon Guard-Captain",
 		"2020_1700": "Murderwing Larva"
 	},
-	"entriesVersion": "87.6"
+	"entriesVersion": "4.3.2"
 }
