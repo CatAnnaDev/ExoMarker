@@ -22,29 +22,29 @@ module.exports = function ExoMarker(mod) {
 		config = JSON.parse(fs.readFileSync(path.join(__dirname,'config.json'), 'utf8'))
 		let defaultConfig = JSON.parse(fs.readFileSync(path.join(__dirname,'lib','configDefault.json'), 'utf8'))
 		if(config.gameVersion !== defaultConfig.gameVersion || config.entriesVersion != defaultConfig.gameVersion && config.allowAutoEntryRemoval) {
-			let oldMonsterList = JSON.parse(JSON.stringify(config.Monster_ID)), //Deep Clone to replace new list with old config using shallow merge
+			let oldMonsterList = JSON.parse(JSON.stringify(config.Monster_ID)),
 				newMonsterEntry = JSON.parse(JSON.stringify(defaultConfig.newEntries))
 
 			if(config.allowAutoEntryRemoval === undefined) {
-				console.log('[Monster Marker] A new config option (allowAutoEntryRemoval) is added to allow this module to automatically clear old event monster entries. It is by default enabled, and you have to disable it in config.json before next login if you do not want this.');
+				console.log('[ExoMarker] A new config option (allowAutoEntryRemoval) is added to allow this module to automatically clear old event monster entries. It is by default enabled, and you have to disable it in config.json before next login if you do not want this.');
 			}
 			else if(config.allowAutoEntryRemoval) {
-				for(let key of defaultConfig.deleteEntries) {	//Delete old unused entries for events that are over using deleteEntries
+				for(let key of defaultConfig.deleteEntries) {
 					if(oldMonsterList[key]) {
-						console.log(`[Monster Marker] Removed old event entry: ${oldMonsterList[key]}`)  
+						console.log(`[ExoMarker] Removed old event entry: ${oldMonsterList[key]}`)  
 						delete oldMonsterList[key]
 					}
 				}
 				config.entriesVersion = defaultConfig.gameVersion
 			}
 
-			Object.assign(oldMonsterList,newMonsterEntry) //Remember to remove the newentries for every update as well as remove old entries from past event
+			Object.assign(oldMonsterList,newMonsterEntry) 
 			
-			config = Object.assign({},defaultConfig,config,{gameVersion:defaultConfig.gameVersion,Monster_ID:oldMonsterList}) //shallow merge
+			config = Object.assign({},defaultConfig,config,{gameVersion:defaultConfig.gameVersion,Monster_ID:oldMonsterList})
 			delete config.newEntries
 			delete config.deleteEntries
 			save(config,'config.json')
-			console.log('[Monster Marker] Updated new config file. Current settings transferred over.')
+			console.log('[ExoMarker] Updated new config file. Current settings transferred over.')
 		}
 		configInit()
 	}
@@ -57,11 +57,11 @@ module.exports = function ExoMarker(mod) {
 		config.entriesVersion = defaultConfig.gameVersion
 		save(config,'config.json')
 		configInit()
-		console.log('[Monster Marker] New config file generated. Settings in config.json.')
+		console.log('[ExoMarker] New config file generated. Settings in config.json.')
 	}		
 	
 ////////Dispatches
-	mod.hook('S_SPAWN_NPC', mod.majorPatchVersion < 79 ? 10 : 11, event => {
+	mod.hook('S_SPAWN_NPC', 11, event => {
 		if(!active || !enabled) return 
 		
 	
