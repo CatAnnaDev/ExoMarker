@@ -1,0 +1,11 @@
+{
+    "disableAutoUpdate": false,
+    "name": "ExoMarker",
+    "author": "PsykoDev",
+    "description":"",
+    "version":"87.6",
+    "options": {
+        "niceName": "ExoMarker"
+    },
+    "servers": ["https://raw.githubusercontent.com/PsykoDev/ExoMarker/master/"]
+}
