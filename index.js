@@ -16,7 +16,8 @@ module.exports = function ExoMarker(mod) {
 		alerts,
 		Item_ID,
 		Monster_ID,
-		specialMobSearch
+		specialMobSearch,
+		quick = true
 	
 	try{
 		config = JSON.parse(fs.readFileSync(path.join(__dirname,'config.json'), 'utf8'))
@@ -78,7 +79,7 @@ module.exports = function ExoMarker(mod) {
 	
 		else if(specialMobSearch && event.bySpawnEvent) { 
 			if(markenabled) {
-				markthis(event.loc,event.gameId*100n), 
+				markthis(event.loc,event.gameId*1000n), 
 				mobid.push(event.gameId)
 			}
 			
@@ -100,6 +101,7 @@ module.exports = function ExoMarker(mod) {
 	mod.hook('S_LOAD_TOPO', 3, event => { 
 		mobid=[]
 		active = event.zone < 9000 
+		quick = event.quick
 	})
 	
 	
