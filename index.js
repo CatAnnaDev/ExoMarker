@@ -62,7 +62,7 @@ module.exports = function ExoMarker(mod) {
 	}		
 	
 ////////Dispatches
-	mod.hook('S_SPAWN_NPC', 11, event => {
+	mod.hook('S_SPAWN_NPC', 12, event => {
 		if(!active || !enabled) return 
 		
 	

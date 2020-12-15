@@ -1,19 +1,16 @@
 {
     "files": {
-        "config.json": {
-			"overwrite": false,
-			"hash": "ba42db0309d175dd0a20b74d73c642063774b67f2341a4e1bb8c744dfa52fb33"
-		},
-        "index.js": "fa772a88d26d39840104414612e3c520c0c730270ef940ec1b740e3c6cea68e3",
-        "module.json": "4effc0d1bf495ccecf663db0cf0c27f5e341aca31eb41051056ed5c4fea506ea",
-        "lib/configDefault.json": "4dfaf72641dbed16134f9835ff0dcaf57c5e385a57cb3b38b4fbe14343795016"
+        "config.json": "ba42db0309d175dd0a20b74d73c642063774b67f2341a4e1bb8c744dfa52fb33",
+        "index.js": "37dd0befcb8720951bc4eafab04b0ec9010a29159719ba2ee508446a8efe1255",
+        "lib/configDefault.json": "b9cafc68b3558685ae64d35c3b99978d6a72f7feac1a573faf942d8dd800b4e0",
+        "module.json": "46be8171c66fedb2fd526bad80756a63f15b1fd1de687c91cc03271e85d73aad"
     },
     "defs": {
-        "S_SPAWN_DROPITEM": 6,
         "S_DESPAWN_DROPITEM": 4,
-        "S_DUNGEON_EVENT_MESSAGE": 2,
-        "S_SPAWN_NPC": [10, 11],
         "S_DESPAWN_NPC": 3,
-        "S_LOAD_TOPO": 3
+        "S_DUNGEON_EVENT_MESSAGE": 2,
+        "S_LOAD_TOPO": 3,
+        "S_SPAWN_DROPITEM": 8,
+        "S_SPAWN_NPC": 12
     }
 }
